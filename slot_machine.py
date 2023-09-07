@@ -141,43 +141,35 @@ class SlotMachine:
         """
         if spin[0] == "Q" and spin[1] == "Q" and spin[2] == "Q":
             print(f"You have won ${total_bet * Q}")
-            money = self.balance + (total_bet * Q)
-            with open("data.txt", 'w') as d:
-                data = d.write(str(money))
+            winnings = total_bet * Q
+            return winnings
 
         elif spin[0] == "J" and spin[1] == "J" and spin[2] == "J":
             print(f"You have won ${total_bet * J}")
-            money = self.balance + (total_bet * J)
-            with open("data.txt", 'w') as d:
-                data = d.write(str(money))
+            winnings = total_bet * J
+            return winnings
 
         elif spin[0] == "K" and spin[1] == "K" and spin[2] == "K":
             print(f"You have won ${total_bet * K}")
-            money = self.balance + (total_bet * K)
-            with open("data.txt", 'w') as d:
-                data = d.write(str(money))
-
+            winnings = total_bet * K
+            return winnings
         elif spin[0] == "A" and spin[1] == "A" and spin[2] == "A":
             print(f"You have won ${total_bet * A}")
-            money = self.balance + (total_bet * A)
-            with open("data.txt", 'w') as d:
-                data = d.write(str(money))
-
+            winnings = total_bet * A
+            return winnings
         else:
             if spin.count('J') == 2 or spin.count('Q') == 2:
                 print(f"You win ${total_bet * TWO_JQ_WIN}")
-                money = self.balance + (total_bet * TWO_JQ_WIN)
-                with open("data.txt", 'w') as d:
-                    data = d.write(str(money))
+                winnings = total_bet * TWO_JQ_WIN
+                return winnings
             elif spin.count('K') == 2:
                 print(f"You win ${total_bet * TWO_K_WIN}")
-                money = self.balance + (total_bet * TWO_K_WIN)
-                with open("data.txt", 'w') as d:
-                    data = d.write(str(money))
+                winnings = total_bet * TWO_K_WIN
+                return winnings
             elif spin.count("A") == 2:
-                print(f"You win ${total_bet * TWO_A_WON}")
-                money = self.balance + (total_bet * TWO_A_WON)
-                with open("data.txt", 'w') as d:
-                    data = d.write(str(money))
+                print(f"You win ${total_bet * TWO_A_WIN}")
+                winnings = total_bet * TWO_A_WIN
+                return winnings
             else:
                 print("No win.")
+                return None
